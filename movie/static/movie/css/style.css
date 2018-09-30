@@ -1,0 +1,89 @@
+.main {
+    margin-top: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tags {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.tags .active {
+    background: #4b8ccb;
+    color: #fff;
+}
+
+.tabs label {
+    display: inline-block;
+    zoom: 1;
+    cursor: pointer;
+    padding: 1px 10px;
+    margin: 0 3px 5px 0;
+    color: #666;
+    font-size: 14px;
+    border-radius: 2px;
+    background: none;
+}
+
+.tags input {
+    display: none;
+}
+.tag-list {
+    width: auto;
+    display: inline;
+    padding-right: 5px;
+}
+
+.movie_row h2{
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+a {
+    color: #666 !important;
+}
+
+.mainpic {
+    margin: 3px 0 0 0;
+    float: left;
+    text-align: center;
+    margin: 3px 12px 0 0;
+    max-width: 280px;
+    max-height: 380px;
+    overflow: hidden;    
+}
+
+.info {
+    float: left;
+    max-width: 248px;
+    word-wrap: break-word;
+}
+
+.p1 {
+    font: 16px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+}
+
+.plot {
+    display: block;
+    margin-top: 15px;
+}
+
+.movie-list .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+.movie-list h2 {
+    font-weight: 400;
+}
+
+.movie-list .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+.movie-list span {
+    color: #e09015;
+}

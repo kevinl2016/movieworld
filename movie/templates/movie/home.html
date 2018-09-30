@@ -1,0 +1,72 @@
+{% extends 'movie/base.html' %}
+
+{% block body %}
+<div class="container">
+    <form id="order_form">
+        <input type="hidden" name="key_word" value="{{ hidden_key }}" />
+        <div class="tags">
+            <h3>Category</h3>
+            <div class="tag-list">
+                <label class="active">
+                        Action
+                    <input type="radio" name="tag" value="Action" checked>   
+                </label>
+                <label class="">
+                        Romantic
+                    <input type="radio" name="tag" value="Romantic">   
+                </label>
+            </div>
+        </div>
+        <h3>Order by</h3>
+        <div class="sort">
+            <label>
+                <input type="radio" name="sort" value="votes">Votes
+            </label>
+            <label>
+                <input type="radio" name="sort" value="price" checked="checked">Price
+            </label>
+            <label>
+                <input type="radio" name="sort" value="rating">Rating
+            </label>
+        </div>
+    </form>
+</div>
+<div id="movie-list" class="container movie-list">
+    <div class="row movie_row">
+        {% for m in movies %}
+        <div class="col-lg-4">
+            <a href="/movie/{{ m.movie_id }}" class="movie-link">
+                <img class="movie-li-img" src="{{ m.poster }}" alt="{{ m.title }}">
+            </a>
+            <h2><a href="/movie/{{ m.movie_id }}" >{{ m.title }} <span>{{ m.rating }}</span></a></h2>
+            <p>Votes: {{ m.votes }}</p>
+            <p>${{ m.price }}</p>
+            <p>{{ m.media_source }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<footer>Movie World</footer>
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '#order_form', function(){
+            var category = $("input[name='tag']:checked").val();
+            var sort =  $("input[name='sort']:checked").val();
+            var key_word = $("input[name='key_word']").val()
+            $.post('/movie/search',
+                {
+                    'category':category,
+                    'sort': sort,
+                    'key_word': key_word,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                function (data) {
+                    $('#movie-list').html(data);
+                    console.log(data);
+                }
+            )
+        })
+    });
+</script>
+{% endblock %}

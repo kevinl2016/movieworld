@@ -1,0 +1,13 @@
+<div class="row movie_row">
+        {% for m in movies %}
+        <div class="col-lg-4">
+            <a href="/movie/{{ m.movie_id }}" class="movie-link">
+                <img class="movie-li-img" src="{{ m.poster }}" alt="{{ m.title }}">
+            </a>
+            <h2><a href="/movie/{{ m.movie_id }}">{{ m.title }} <span>{{ m.rating }}</span></a></h2>
+            <p>Votes: {{ m.votes }}</p>
+            <p>${{ m.price }}</p>
+            <p>{{ m.media_source }}</p>
+        </div>
+        {% endfor %}
+    </div>
