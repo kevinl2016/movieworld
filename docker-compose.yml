@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  container_name: movieworld
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - .:/usr/src/app
+  ports:
+    - '8000:8000'
+  command: python manage.py runserver 0.0.0.0:8000
